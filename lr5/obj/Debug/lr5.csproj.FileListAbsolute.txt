@@ -1,0 +1,20 @@
+C:\Users\gigapc\Documents\Универ\4 курс\7 семестр\ИИ тотухов\labs\lr5\lr5\bin\Debug\lr5.exe.config
+C:\Users\gigapc\Documents\Универ\4 курс\7 семестр\ИИ тотухов\labs\lr5\lr5\bin\Debug\lr5.exe
+C:\Users\gigapc\Documents\Универ\4 курс\7 семестр\ИИ тотухов\labs\lr5\lr5\bin\Debug\lr5.pdb
+C:\Users\gigapc\Documents\Универ\4 курс\7 семестр\ИИ тотухов\labs\lr5\lr5\obj\Debug\lr5.csproj.AssemblyReference.cache
+C:\Users\gigapc\Documents\Универ\4 курс\7 семестр\ИИ тотухов\labs\lr5\lr5\obj\Debug\lr5.MainForm.resources
+C:\Users\gigapc\Documents\Универ\4 курс\7 семестр\ИИ тотухов\labs\lr5\lr5\obj\Debug\lr5.Properties.Resources.resources
+C:\Users\gigapc\Documents\Универ\4 курс\7 семестр\ИИ тотухов\labs\lr5\lr5\obj\Debug\lr5.csproj.GenerateResource.cache
+C:\Users\gigapc\Documents\Универ\4 курс\7 семестр\ИИ тотухов\labs\lr5\lr5\obj\Debug\lr5.csproj.CoreCompileInputs.cache
+C:\Users\gigapc\Documents\Универ\4 курс\7 семестр\ИИ тотухов\labs\lr5\lr5\obj\Debug\lr5.exe
+C:\Users\gigapc\Documents\Универ\4 курс\7 семестр\ИИ тотухов\labs\lr5\lr5\obj\Debug\lr5.pdb
+C:\Users\admin\Downloads\labs SII\lr5\lr5\obj\Debug\lr5.csproj.AssemblyReference.cache
+C:\Users\admin\Downloads\labs SII\lr5\lr5\obj\Debug\lr5.MainForm.resources
+C:\Users\admin\Downloads\labs SII\lr5\lr5\obj\Debug\lr5.Properties.Resources.resources
+C:\Users\admin\Downloads\labs SII\lr5\lr5\obj\Debug\lr5.csproj.GenerateResource.cache
+C:\Users\admin\Downloads\labs SII\lr5\lr5\obj\Debug\lr5.csproj.CoreCompileInputs.cache
+C:\Users\admin\Downloads\labs SII\lr5\lr5\obj\Debug\lr5.exe
+C:\Users\admin\Downloads\labs SII\lr5\lr5\obj\Debug\lr5.pdb
+C:\Users\admin\Downloads\labs SII\lr5\lr5\bin\Debug\lr5.exe.config
+C:\Users\admin\Downloads\labs SII\lr5\lr5\bin\Debug\lr5.exe
+C:\Users\admin\Downloads\labs SII\lr5\lr5\bin\Debug\lr5.pdb
