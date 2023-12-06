@@ -29,7 +29,6 @@ namespace lr5
         private void MainForm_Load(object sender, EventArgs e)
         {
             g = worldPictureBox.CreateGraphics();
-            
         }
         private void DrawWorld()
         {
@@ -55,11 +54,12 @@ namespace lr5
                   {
                       creature.ScanNearbyWorld(creatures);
                   }
-                  for (int i = creatures.Count - 1; i >=0; i--)
-                  {
-                      creatures[i].Act(creatures);                    
-                  }                
-                  AddPlants(creatures, 2);
+                    foreach (Creature creature in creatures)
+                    {
+                        creature.Move();
+                        //creature.Act(creatures);
+                    }
+                    //AddPlants(creatures, 2);
                     DrawWorld();
                     cycleCount++;
                     string s = Convert.ToString(cycleCount);
@@ -106,18 +106,13 @@ namespace lr5
         
         private void startButton_Click(object sender, EventArgs e)
         {
-            creatures = WorldInitialiser(10, 20, 5);
+            creatures = WorldInitialiser(1, 1, 1);
             DrawWorld();
         }
 
         private void startSimButton_Click(object sender, EventArgs e)
         {
             MainSimulationCycle();
-        }
-
-        private void cycleDelay_Tick(object sender, EventArgs e)
-        {
-
         }
     }
 }

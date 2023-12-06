@@ -29,10 +29,10 @@ namespace lr5
             }
             perception.UpdatePerceptionFacingNorth(Location);
         }
-        public void Damage(List<Creature> creatures)
+        public void Damage(List<Creature> creatures,Creature creature)
         {
-            this.health--;
-            if (health <= 0) creatures.Remove(this);
+            creature.health--;
+            if (health <= 0) creatures.Remove(creature);
         }
         public virtual Pen GetCreaturePen()
         {
@@ -59,7 +59,7 @@ namespace lr5
         public void ScanNearbyWorld(List<Creature> creatures)
         {
             int[] neuronInputArray = new int[12];
-            eatHerbIndex = -1;
+            this.eatHerbIndex = -1;
             eatPlantIndex = -1;
             for (int i = 0; i < creatures.Count; i++)
             {
@@ -125,7 +125,7 @@ namespace lr5
                         if (creature.GetType() == typeof(Herbivore))
                         {
                             neuronInputArray[9] = 1;
-                            eatHerbIndex = i;
+                            this.eatHerbIndex = i;
                         }
                         else if (creature.GetType() == typeof(Predator))
                         {
@@ -134,7 +134,7 @@ namespace lr5
                         else
                         {
                             neuronInputArray[11] = 1;
-                            eatPlantIndex = i;
+                            this.eatPlantIndex = i;
                         }
                     }
                 }
@@ -147,27 +147,28 @@ namespace lr5
         public void Act(List<Creature> creatures)
         {
             int[] neuronOutput = GetNeuronOutput();
-            for (int i = 0; i < neuronOutput.Length; i++)
-            {
-                if (neuronOutput[i] != 0 && i == 0)
+                for (int i = 0; i < neuronOutput.Length; i++)
                 {
-                    TurnLeft();
-                }
-                else if (neuronOutput[i] != 0 && i == 1)
-                {
-                    TurnRight();
-                }
-                else if (neuronOutput[i] != 0 && i == 2)
-                {
-                    Move();
-                }
-                else if (neuronOutput[i] != 0 && i == 3)
-                {
-                    Eat(creatures);
-                }
-                else {
-                    Damage(creatures);
-                }
+                    if (neuronOutput[i] != 0 && i == 0)
+                    {
+                        this.TurnLeft();
+                    }
+                    else if (neuronOutput[i] != 0 && i == 1)
+                    {
+                        this.TurnRight();
+                    }
+                    else if (neuronOutput[i] != 0 && i == 2)
+                    {
+                        this.Move();
+                    }
+                    else if (neuronOutput[i] != 0 && i == 3)
+                    {
+                        this.Eat(creatures);
+                    }
+                    else if (i == 3)
+                    {
+                        Damage(creatures, this);
+                    }                
             }
         }
         public void TurnLeft()
@@ -219,30 +220,33 @@ namespace lr5
             switch (direction)
             {
                 case Direction.North:
-                    int newCoordYNorth = Location.Y + 1;
+                    int newCoordYNorth = this.Location.Y + 1;
                     if (newCoordYNorth > Utilities.WorldSizeY)
-                        Location = new Point(Location.X, 0);
-                    else Location = new Point(Location.X, newCoordYNorth);
+                        this.Location = new Point(this.Location.X, 0);
+                    else this.Location = new Point(this.Location.X, newCoordYNorth);
                     break;
                 case Direction.West:
-                    int newCoordXWest = Location.X - 1;
+                    int newCoordXWest = this.Location.X - 1;
                     if (newCoordXWest < 0)
-                        Location = new Point(Utilities.WorldSizeX, Location.Y);
-                    else Location = new Point(newCoordXWest, Location.Y);
+                        this.Location = new Point(Utilities.WorldSizeX, this.Location.Y);
+                    else this.Location = new Point(newCoordXWest, this.Location.Y);
                     break;
                 case Direction.South:
-                    int newCoordYSouth = Location.Y - 1;
+                    int newCoordYSouth = this.Location.Y - 1;
                     if (newCoordYSouth < 0)
-                        Location = new Point(Location.X, Utilities.WorldSizeY);
-                    else Location = new Point(Location.X, newCoordYSouth);
+                        this.Location = new Point(this.Location.X, Utilities.WorldSizeY);
+                    else this.Location = new Point(this.Location.X, newCoordYSouth);
                     break;
                 case Direction.East:
-                    int newCoordXEast = Location.X + 1;
+                    int newCoordXEast = this.Location.X + 1;
                     if (newCoordXEast > Utilities.WorldSizeX)
-                        Location = new Point(0, Location.Y);
-                    else Location = new Point(newCoordXEast, Location.Y);
+                        this.Location = new Point(0, this.Location.Y);
+                    else this.Location = new Point(newCoordXEast, this.Location.Y);
                     break;
             }
+            Point creaturePoint = this.Location;
+            Graphics g = new();
+            g.DrawEllipse(this.GetCreaturePen(), creaturePoint.X, creaturePoint.Y, 4, 4);
         }
         public virtual void Eat(List<Creature> creatures)
         {

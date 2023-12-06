@@ -78,7 +78,6 @@
             // 
             // cycleDelay
             // 
-            this.cycleDelay.Tick += new System.EventHandler(this.cycleDelay_Tick);
             // 
             // MainForm
             // 

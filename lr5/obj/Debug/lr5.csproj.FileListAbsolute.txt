@@ -28,3 +28,13 @@ C:\Users\ii730\Рабочий стол\LR5_git\lr5\obj\Debug\lr5.csproj.Generate
 C:\Users\ii730\Рабочий стол\LR5_git\lr5\obj\Debug\lr5.csproj.CoreCompileInputs.cache
 C:\Users\ii730\Рабочий стол\LR5_git\lr5\obj\Debug\lr5.exe
 C:\Users\ii730\Рабочий стол\LR5_git\lr5\obj\Debug\lr5.pdb
+C:\Users\admin\Downloads\labs SII\lr5_git\LR5_git\lr5\bin\Debug\lr5.exe.config
+C:\Users\admin\Downloads\labs SII\lr5_git\LR5_git\lr5\bin\Debug\lr5.exe
+C:\Users\admin\Downloads\labs SII\lr5_git\LR5_git\lr5\bin\Debug\lr5.pdb
+C:\Users\admin\Downloads\labs SII\lr5_git\LR5_git\lr5\obj\Debug\lr5.csproj.AssemblyReference.cache
+C:\Users\admin\Downloads\labs SII\lr5_git\LR5_git\lr5\obj\Debug\lr5.MainForm.resources
+C:\Users\admin\Downloads\labs SII\lr5_git\LR5_git\lr5\obj\Debug\lr5.Properties.Resources.resources
+C:\Users\admin\Downloads\labs SII\lr5_git\LR5_git\lr5\obj\Debug\lr5.csproj.GenerateResource.cache
+C:\Users\admin\Downloads\labs SII\lr5_git\LR5_git\lr5\obj\Debug\lr5.csproj.CoreCompileInputs.cache
+C:\Users\admin\Downloads\labs SII\lr5_git\LR5_git\lr5\obj\Debug\lr5.exe
+C:\Users\admin\Downloads\labs SII\lr5_git\LR5_git\lr5\obj\Debug\lr5.pdb
