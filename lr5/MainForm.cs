@@ -44,7 +44,7 @@ namespace lr5
             int cycleCount = 0;
             System.Windows.Forms.Timer cycleDelay = new System.Windows.Forms.Timer
             {
-                Interval = 500
+                Interval = 2
             };
             cycleDelay.Tick += new EventHandler((_s, _e) =>
             {
@@ -56,10 +56,10 @@ namespace lr5
                   }
                     foreach (Creature creature in creatures)
                     {
-                        creature.Move();
-                        //creature.Act(creatures);
+                        creature.Eat(creatures);                        
+                        //creature.Act(creatures);                        
                     }
-                    //AddPlants(creatures, 2);
+                    //AddPlants(creatures, 1);
                     DrawWorld();
                     cycleCount++;
                     string s = Convert.ToString(cycleCount);
@@ -106,7 +106,7 @@ namespace lr5
         
         private void startButton_Click(object sender, EventArgs e)
         {
-            creatures = WorldInitialiser(1, 1, 1);
+            creatures = WorldInitialiser(2, 8, 6);
             DrawWorld();
         }
 

@@ -152,10 +152,12 @@ namespace lr5
                     if (neuronOutput[i] != 0 && i == 0)
                     {
                         this.TurnLeft();
+                    Move();
                     }
                     else if (neuronOutput[i] != 0 && i == 1)
                     {
                         this.TurnRight();
+                    Move();
                     }
                     else if (neuronOutput[i] != 0 && i == 2)
                     {
@@ -164,11 +166,7 @@ namespace lr5
                     else if (neuronOutput[i] != 0 && i == 3)
                     {
                         this.Eat(creatures);
-                    }
-                    else if (i == 3)
-                    {
-                        Damage(creatures, this);
-                    }                
+                    }          
             }
         }
         public void TurnLeft()
@@ -244,9 +242,6 @@ namespace lr5
                     else this.Location = new Point(newCoordXEast, this.Location.Y);
                     break;
             }
-            Point creaturePoint = this.Location;
-            Graphics g = new();
-            g.DrawEllipse(this.GetCreaturePen(), creaturePoint.X, creaturePoint.Y, 4, 4);
         }
         public virtual void Eat(List<Creature> creatures)
         {
