@@ -31,12 +31,12 @@ namespace lr5
         }
         public void Damage(List<Creature> creatures)
         {
-            health--;
+            this.health--;
             if (health <= 0) creatures.Remove(this);
         }
         public virtual Pen GetCreaturePen()
         {
-            return new Pen(Color.White);
+            return new Pen(Color.Transparent);
         }
         private int[] GetNeuronOutput()
         {
@@ -152,15 +152,21 @@ namespace lr5
                 if (neuronOutput[i] != 0 && i == 0)
                 {
                     TurnLeft();
-                } else if (neuronOutput[i] != 0 && i == 1)
+                }
+                else if (neuronOutput[i] != 0 && i == 1)
                 {
                     TurnRight();
-                } else if (neuronOutput[i] != 0 && i == 2)
+                }
+                else if (neuronOutput[i] != 0 && i == 2)
                 {
                     Move();
-                } else if (neuronOutput[i] != 0 && i == 3)
+                }
+                else if (neuronOutput[i] != 0 && i == 3)
                 {
                     Eat(creatures);
+                }
+                else {
+                    Damage(creatures);
                 }
             }
         }

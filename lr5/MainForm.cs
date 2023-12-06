@@ -8,10 +8,16 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Timers;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrackBar;
 
 namespace lr5
 {
+    public enum Direction
+    {
+        North, South, East, West
+    }
     public partial class MainForm : Form
     {
         Graphics g;
@@ -20,38 +26,48 @@ namespace lr5
         {
             InitializeComponent();
         }
-
         private void MainForm_Load(object sender, EventArgs e)
         {
             g = worldPictureBox.CreateGraphics();
-            creatures = WorldInitialiser(100, 20, 5);
+            
         }
         private void DrawWorld()
         {
-            g.Clear(Color.Black);
+            g.Clear(Color.DarkGray);
             foreach (Creature creature in creatures)
             {
                 Point creaturePoint = creature.Location;
-                g.DrawEllipse(creature.GetCreaturePen(), creaturePoint.X, creaturePoint.Y, 3, 3);
+                g.DrawEllipse(creature.GetCreaturePen(), creaturePoint.X, creaturePoint.Y, 4, 4);
             }
         }
         private void MainSimulationCycle()
         {
-            while (creatures.Any())
+            int cycleCount = 0;
+            System.Windows.Forms.Timer cycleDelay = new System.Windows.Forms.Timer
             {
-                foreach (Creature creature in creatures)
-                {
-                    creature.ScanNearbyWorld(creatures);
+                Interval = 500
+            };
+            cycleDelay.Tick += new EventHandler((_s, _e) =>
+            {
+                if (creatures.Any())
+                {                    
+                  foreach (Creature creature in creatures)
+                  {
+                      creature.ScanNearbyWorld(creatures);
+                  }
+                  for (int i = creatures.Count - 1; i >=0; i--)
+                  {
+                      creatures[i].Act(creatures);                    
+                  }                
+                  AddPlants(creatures, 2);
+                    DrawWorld();
+                    cycleCount++;
+                    string s = Convert.ToString(cycleCount);
+                    textBox1.Text = s;
                 }
-                for (int i = creatures.Count - 1; i >=0; i--)
-                {
-                    creatures[i].Act(creatures);
-                    creatures[i].Damage(creatures);
-                }
-                DrawWorld();
-                AddPlants(creatures, 2);
-                Thread.Sleep(1000);
-            }
+                else cycleDelay.Dispose();
+            });
+            cycleDelay.Start();
         }
         private void AddPlants(List<Creature> creatures, int numberPlants)
         {
@@ -90,13 +106,18 @@ namespace lr5
         
         private void startButton_Click(object sender, EventArgs e)
         {
-            g.Clear(Color.Black);
+            creatures = WorldInitialiser(10, 20, 5);
             DrawWorld();
         }
 
         private void startSimButton_Click(object sender, EventArgs e)
         {
             MainSimulationCycle();
+        }
+
+        private void cycleDelay_Tick(object sender, EventArgs e)
+        {
+
         }
     }
 }

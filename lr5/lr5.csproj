@@ -47,7 +47,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Creatures\Perception.cs" />
-    <Compile Include="Direction.cs" />
     <Compile Include="Creatures\Herbivore.cs" />
     <Compile Include="Utilities.cs" />
     <Compile Include="MainForm.cs">

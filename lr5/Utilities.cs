@@ -9,7 +9,7 @@ namespace lr5.Creatures
 {
     public class Utilities
     {
-        public static int WorldSizeY = 257;
-        public static int WorldSizeX = 500;
+        public static int WorldSizeY = 180;
+        public static int WorldSizeX = 300;
     }
 }
