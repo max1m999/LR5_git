@@ -1,4 +1,5 @@
-﻿using System;
+﻿using lr5;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -18,6 +19,7 @@ namespace lr5
                 creatures.RemoveAt(eatPlantIndex);
                 this.health += 4;
                 MakeNewCreature(creatures);
+                MainForm.x=" "+ eatPlantIndex.ToString();
             }
         }
         protected override void MakeNewCreature(List<Creature> creatures)

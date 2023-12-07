@@ -34,6 +34,7 @@
             this.startSimButton = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.cycleDelay = new System.Windows.Forms.Timer(this.components);
+            this.richtextBox2 = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.worldPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -76,14 +77,20 @@
             this.textBox1.TabIndex = 3;
             this.textBox1.Text = "0";
             // 
-            // cycleDelay
+            // richtextBox2
             // 
+            this.richtextBox2.Location = new System.Drawing.Point(610, 183);
+            this.richtextBox2.Name = "richtextBox2";
+            this.richtextBox2.Size = new System.Drawing.Size(126, 238);
+            this.richtextBox2.TabIndex = 4;
+            this.richtextBox2.Text = "";
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(748, 465);
+            this.Controls.Add(this.richtextBox2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.startSimButton);
             this.Controls.Add(this.startButton);
@@ -105,6 +112,7 @@
         private System.Windows.Forms.Button startSimButton;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Timer cycleDelay;
+        public System.Windows.Forms.RichTextBox richtextBox2;
     }
 }
 

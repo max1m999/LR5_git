@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -20,6 +21,7 @@ namespace lr5
     }
     public partial class MainForm : Form
     {
+        public static string x = "";
         Graphics g;
         List<Creature> creatures;
         public MainForm()
@@ -36,7 +38,7 @@ namespace lr5
             foreach (Creature creature in creatures)
             {
                 Point creaturePoint = creature.Location;
-                g.DrawEllipse(creature.GetCreaturePen(), creaturePoint.X, creaturePoint.Y, 4, 4);
+                g.DrawEllipse(creature.GetCreaturePen(), creaturePoint.X, creaturePoint.Y, 6, 6);
             }
         }
         private void MainSimulationCycle()
@@ -56,14 +58,15 @@ namespace lr5
                   }
                     foreach (Creature creature in creatures)
                     {
-                        creature.Eat(creatures);                        
-                        //creature.Act(creatures);                        
+                        //creature.Eat(creatures);                        
+                        creature.Act(creatures);
                     }
                     //AddPlants(creatures, 1);
                     DrawWorld();
                     cycleCount++;
                     string s = Convert.ToString(cycleCount);
                     textBox1.Text = s;
+                    richtextBox2.Text += x;
                 }
                 else cycleDelay.Dispose();
             });
@@ -106,7 +109,7 @@ namespace lr5
         
         private void startButton_Click(object sender, EventArgs e)
         {
-            creatures = WorldInitialiser(2, 8, 6);
+            creatures = WorldInitialiser(40, 50, 30);
             DrawWorld();
         }
 

@@ -126,6 +126,7 @@ namespace lr5
                         {
                             neuronInputArray[9] = 1;
                             this.eatHerbIndex = i;
+                            MainForm.x += "eatHerb: " + eatHerbIndex.ToString() + "\n";
                         }
                         else if (creature.GetType() == typeof(Predator))
                         {
@@ -135,6 +136,7 @@ namespace lr5
                         {
                             neuronInputArray[11] = 1;
                             this.eatPlantIndex = i;
+                            MainForm.x += "eatPlant: " + eatPlantIndex.ToString()+"\n";
                         }
                     }
                 }
@@ -152,21 +154,23 @@ namespace lr5
                     if (neuronOutput[i] != 0 && i == 0)
                     {
                         this.TurnLeft();
-                    Move();
-                    }
+                    MainForm.x += this.ToString() + "_trnLeft!";
+                }
                     else if (neuronOutput[i] != 0 && i == 1)
                     {
                         this.TurnRight();
-                    Move();
-                    }
+                    MainForm.x += this.ToString() + "_trnRight!";
+                }
                     else if (neuronOutput[i] != 0 && i == 2)
                     {
                         this.Move();
+                    MainForm.x += this.ToString() + "_moving!";
                     }
                     else if (neuronOutput[i] != 0 && i == 3)
                     {
                         this.Eat(creatures);
-                    }          
+                   // MainForm.x += this.ToString() + "_eat!";
+                }          
             }
         }
         public void TurnLeft()
