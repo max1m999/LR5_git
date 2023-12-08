@@ -17,7 +17,7 @@ namespace lr5
             Random rnd = new Random();
             for (int i = 0; i < 12; i++)
             {
-                Weights[i] = rnd.NextDouble();
+                Weights[i] = rnd.NextDouble()*2-1;
             }
         }
         public double CalculatePotential()

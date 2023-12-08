@@ -84,6 +84,7 @@ namespace lr5
                 }
                 foreach (Point leftPoint in perception.leftPerception)
                 {
+
                     if (creature.Location == leftPoint)
                     {
                         if (creature.GetType() == typeof(Herbivore))
@@ -126,7 +127,6 @@ namespace lr5
                         {
                             neuronInputArray[9] = 1;
                             this.eatHerbIndex = i;
-                            MainForm.x += "eatHerb: " + eatHerbIndex.ToString() + "\n";
                         }
                         else if (creature.GetType() == typeof(Predator))
                         {
@@ -136,7 +136,6 @@ namespace lr5
                         {
                             neuronInputArray[11] = 1;
                             this.eatPlantIndex = i;
-                            MainForm.x += "eatPlant: " + eatPlantIndex.ToString()+"\n";
                         }
                     }
                 }
@@ -154,22 +153,20 @@ namespace lr5
                     if (neuronOutput[i] != 0 && i == 0)
                     {
                         this.TurnLeft();
-                    MainForm.x += this.ToString() + "_trnLeft!";
+                    this.Move();
                 }
                     else if (neuronOutput[i] != 0 && i == 1)
                     {
                         this.TurnRight();
-                    MainForm.x += this.ToString() + "_trnRight!";
+                    this.Move();
                 }
                     else if (neuronOutput[i] != 0 && i == 2)
                     {
                         this.Move();
-                    MainForm.x += this.ToString() + "_moving!";
                     }
                     else if (neuronOutput[i] != 0 && i == 3)
                     {
                         this.Eat(creatures);
-                   // MainForm.x += this.ToString() + "_eat!";
                 }          
             }
         }

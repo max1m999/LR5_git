@@ -22,7 +22,7 @@ namespace lr5
     public partial class MainForm : Form
     {
         public static string x = "";
-        Graphics g;
+        public static Graphics g;
         List<Creature> creatures;
         public MainForm()
         {
@@ -38,7 +38,7 @@ namespace lr5
             foreach (Creature creature in creatures)
             {
                 Point creaturePoint = creature.Location;
-                g.DrawEllipse(creature.GetCreaturePen(), creaturePoint.X, creaturePoint.Y, 6, 6);
+                g.DrawEllipse(creature.GetCreaturePen(), creaturePoint.X, creaturePoint.Y, 4, 4);
             }
         }
         private void MainSimulationCycle()
@@ -46,7 +46,7 @@ namespace lr5
             int cycleCount = 0;
             System.Windows.Forms.Timer cycleDelay = new System.Windows.Forms.Timer
             {
-                Interval = 2
+                Interval = 1000
             };
             cycleDelay.Tick += new EventHandler((_s, _e) =>
             {
@@ -58,15 +58,13 @@ namespace lr5
                   }
                     foreach (Creature creature in creatures)
                     {
-                        //creature.Eat(creatures);                        
                         creature.Act(creatures);
                     }
-                    //AddPlants(creatures, 1);
+                    if (cycleCount % 50 == 0) AddPlants(creatures, 1);
                     DrawWorld();
                     cycleCount++;
                     string s = Convert.ToString(cycleCount);
                     textBox1.Text = s;
-                    richtextBox2.Text += x;
                 }
                 else cycleDelay.Dispose();
             });

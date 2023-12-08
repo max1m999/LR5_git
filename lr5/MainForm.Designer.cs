@@ -107,7 +107,7 @@
 
         #endregion
 
-        private System.Windows.Forms.PictureBox worldPictureBox;
+        public  System.Windows.Forms.PictureBox worldPictureBox;
         private System.Windows.Forms.Button startButton;
         private System.Windows.Forms.Button startSimButton;
         private System.Windows.Forms.TextBox textBox1;

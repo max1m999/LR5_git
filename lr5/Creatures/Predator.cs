@@ -17,7 +17,6 @@ namespace lr5
                 creatures.RemoveAt(eatHerbIndex);
                 health += 4;
                 MakeNewCreature(creatures);
-                MainForm.x = "newPred:" + eatHerbIndex.ToString();
             }
         }
         protected override void MakeNewCreature(List<Creature> creatures)
