@@ -14,7 +14,7 @@ namespace lr5
         {
             if (eatHerbIndex > -1)
             {
-                creatures.RemoveAt(eatHerbIndex);
+                //creatures.RemoveAt(eatHerbIndex);
                 health += 4;
                 MakeNewCreature(creatures);
             }

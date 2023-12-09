@@ -46,19 +46,21 @@ namespace lr5
             int cycleCount = 0;
             System.Windows.Forms.Timer cycleDelay = new System.Windows.Forms.Timer
             {
-                Interval = 10
+                Interval = 5
             };
             cycleDelay.Tick += new EventHandler((_s, _e) =>
             {
                 if (creatures.Any())
-                {                    
-                  foreach (Creature creature in creatures)
+                {
+                    for (int i = 0; i < creatures.Count; i++)
                   {
-                      creature.ScanNearbyWorld(creatures);
+                        Creature creature = creatures[i];
+                        creature.ScanNearbyWorld(ref creatures);
                   }
-                    foreach (Creature creature in creatures)
+                    for (int i = 0; i < creatures.Count; i++)
                     {
-                        creature.Act(creatures);
+                        Creature creature = creatures[i];
+                        creature.Act(ref creatures);
                     }
                     if (cycleCount % 50 == 0) AddPlants(creatures, 1);
                     DrawWorld();
@@ -107,7 +109,7 @@ namespace lr5
         
         private void startButton_Click(object sender, EventArgs e)
         {
-            creatures = WorldInitialiser(40, 50, 30);
+            creatures = WorldInitialiser(100, 150, 130);
             DrawWorld();
         }
 
