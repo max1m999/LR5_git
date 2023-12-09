@@ -46,7 +46,7 @@ namespace lr5
             int cycleCount = 0;
             System.Windows.Forms.Timer cycleDelay = new System.Windows.Forms.Timer
             {
-                Interval = 5
+                Interval = 1
             };
             cycleDelay.Tick += new EventHandler((_s, _e) =>
             {
@@ -109,7 +109,7 @@ namespace lr5
         
         private void startButton_Click(object sender, EventArgs e)
         {
-            creatures = WorldInitialiser(100, 150, 130);
+            creatures = WorldInitialiser(90, 100, 95);
             DrawWorld();
         }
 

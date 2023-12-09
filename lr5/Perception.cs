@@ -9,12 +9,9 @@ namespace lr5.Creatures
 {
     public class Perception
     {
-        /// <summary>
-        // Расширить область обзора в 4 раза
-        /// </summary>
-        public Point[] frontPerception = new Point[5];
-        public Point[] leftPerception = new Point[2];
-        public Point[] rightPerception = new Point[2];
+        public Point[] frontPerception = new Point[90];
+        public Point[] leftPerception = new Point[50];
+        public Point[] rightPerception = new Point[50];
         public Point[] nearPerception = new Point[5];        
         public void UpdatePerceptionFacingNorth(Point location)
         {

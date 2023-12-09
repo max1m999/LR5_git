@@ -34,7 +34,7 @@ namespace lr5
         public void Damage(List<Creature> creatures,Creature creature)
         {
             creature.health--;
-            if (health <= 0) creatures.Remove(creature);
+            if (creature.health <= 0) creatures.Remove(creature);
         }
         public virtual Pen GetCreaturePen()
         {
@@ -66,6 +66,11 @@ namespace lr5
             for (int i = 0; i < creatures.Count; i++)
             {
                 var creature = creatures[i];
+                if ((Math.Pow(creature.Location.X - this.Location.X, 2) + Math.Pow(creature.Location.Y - this.Location.Y, 2)) < 36 && ((creature.GetType() == typeof(Herbivore) && this.GetType() == typeof(Predator)) || (creature.GetType() == typeof(Plant) && this.GetType() == typeof(Herbivore))))
+                {
+                    creatures.Remove(creature);
+                    this.health += 4;
+                }
                 foreach (Point frontPoint in perception.frontPerception)
                 {
                     if (creature.Location == frontPoint)
@@ -156,7 +161,7 @@ namespace lr5
             int[] neuronOutput = GetNeuronOutput();
                 for (int i = 0; i < neuronOutput.Length; i++)
                 {
-                if (notEat == 30) Damage(creatures,this);
+                if (notEat == 10) Damage(creatures,this);
                    else if (neuronOutput[i] != 0 && i == 0)
                     {
                         TurnLeft();
@@ -170,8 +175,7 @@ namespace lr5
                     return;
                 }
                     else if (neuronOutput[i] != 0 && i == 2)
-                    {
-                    Move();
+                    {                   
                     notEat++;
                     return;
                     }
