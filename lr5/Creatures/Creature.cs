@@ -16,6 +16,7 @@ namespace lr5
         protected int eatHerbIndex;
         protected int eatPlantIndex;
         protected int health = 10;
+        protected int notEat = 0;
         protected Direction direction;
         public Point Location { get; set; }
         public Creature(int X, int Y) 
@@ -150,23 +151,28 @@ namespace lr5
             int[] neuronOutput = GetNeuronOutput();
                 for (int i = 0; i < neuronOutput.Length; i++)
                 {
+                if (notEat == 30) Damage(creatures,this);
                     if (neuronOutput[i] != 0 && i == 0)
                     {
                         this.TurnLeft();
                     this.Move();
+                    notEat++;
                 }
-                    else if (neuronOutput[i] != 0 && i == 1)
+                     if (neuronOutput[i] != 0 && i == 1)
                     {
                         this.TurnRight();
                     this.Move();
+                    notEat++;
                 }
-                    else if (neuronOutput[i] != 0 && i == 2)
+                     if (this.GetType() !=typeof(Plant) && neuronOutput[i] != 0 && i == 2)
                     {
                         this.Move();
+                    notEat++;
                     }
-                    else if (neuronOutput[i] != 0 && i == 3)
+                     if (neuronOutput[i] != 0 && i == 3)
                     {
                         this.Eat(creatures);
+                    notEat = 0;
                 }          
             }
         }

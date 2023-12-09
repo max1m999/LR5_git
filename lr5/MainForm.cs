@@ -46,7 +46,7 @@ namespace lr5
             int cycleCount = 0;
             System.Windows.Forms.Timer cycleDelay = new System.Windows.Forms.Timer
             {
-                Interval = 1000
+                Interval = 10
             };
             cycleDelay.Tick += new EventHandler((_s, _e) =>
             {

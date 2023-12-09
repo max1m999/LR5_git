@@ -34,25 +34,23 @@
             this.startSimButton = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.cycleDelay = new System.Windows.Forms.Timer(this.components);
-            this.richtextBox2 = new System.Windows.Forms.RichTextBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.worldPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // worldPictureBox
             // 
-            this.worldPictureBox.Location = new System.Drawing.Point(9, 10);
-            this.worldPictureBox.Margin = new System.Windows.Forms.Padding(2);
+            this.worldPictureBox.Location = new System.Drawing.Point(14, 15);
             this.worldPictureBox.Name = "worldPictureBox";
-            this.worldPictureBox.Size = new System.Drawing.Size(579, 363);
+            this.worldPictureBox.Size = new System.Drawing.Size(868, 558);
             this.worldPictureBox.TabIndex = 0;
             this.worldPictureBox.TabStop = false;
             // 
             // startButton
             // 
-            this.startButton.Location = new System.Drawing.Point(9, 385);
-            this.startButton.Margin = new System.Windows.Forms.Padding(2);
+            this.startButton.Location = new System.Drawing.Point(14, 592);
             this.startButton.Name = "startButton";
-            this.startButton.Size = new System.Drawing.Size(94, 36);
+            this.startButton.Size = new System.Drawing.Size(141, 55);
             this.startButton.TabIndex = 1;
             this.startButton.Text = "Создать мир";
             this.startButton.UseVisualStyleBackColor = true;
@@ -60,10 +58,9 @@
             // 
             // startSimButton
             // 
-            this.startSimButton.Location = new System.Drawing.Point(129, 385);
-            this.startSimButton.Margin = new System.Windows.Forms.Padding(2);
+            this.startSimButton.Location = new System.Drawing.Point(194, 592);
             this.startSimButton.Name = "startSimButton";
-            this.startSimButton.Size = new System.Drawing.Size(100, 36);
+            this.startSimButton.Size = new System.Drawing.Size(150, 55);
             this.startSimButton.TabIndex = 2;
             this.startSimButton.Text = "Запустить симуляцию";
             this.startSimButton.UseVisualStyleBackColor = true;
@@ -71,31 +68,32 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(610, 145);
+            this.textBox1.Location = new System.Drawing.Point(915, 223);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.Size = new System.Drawing.Size(148, 26);
             this.textBox1.TabIndex = 3;
             this.textBox1.Text = "0";
             // 
-            // richtextBox2
+            // label1
             // 
-            this.richtextBox2.Location = new System.Drawing.Point(610, 183);
-            this.richtextBox2.Name = "richtextBox2";
-            this.richtextBox2.Size = new System.Drawing.Size(126, 238);
-            this.richtextBox2.TabIndex = 4;
-            this.richtextBox2.Text = "";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(911, 198);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(135, 20);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Счётчик циклов:";
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(748, 465);
-            this.Controls.Add(this.richtextBox2);
+            this.ClientSize = new System.Drawing.Size(1122, 715);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.startSimButton);
             this.Controls.Add(this.startButton);
             this.Controls.Add(this.worldPictureBox);
-            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "MainForm";
             this.Text = "Система обучающихся агентов";
             this.Load += new System.EventHandler(this.MainForm_Load);
@@ -112,7 +110,7 @@
         private System.Windows.Forms.Button startSimButton;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Timer cycleDelay;
-        public System.Windows.Forms.RichTextBox richtextBox2;
+        private System.Windows.Forms.Label label1;
     }
 }
 
