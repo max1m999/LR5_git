@@ -179,10 +179,10 @@ namespace lr5
                     notEat++;
                     return;
                     }
-                  else if (neuronOutput[i] != 0 && i == 3)
+                  else if (this.GetType() != typeof(Plant) && neuronOutput[i] != 0 && i == 3)
                     {
                         Eat(creatures);
-                    if (this.GetType() != typeof (Plant)) notEat = 0;
+                        notEat = 0;
                     return;
                 }
                 Move();

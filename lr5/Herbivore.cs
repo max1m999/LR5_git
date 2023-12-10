@@ -38,6 +38,7 @@ namespace lr5
                     child.neurons[i].Weights = mutatedWeights;
                 }
                 creatures.Add(child);
+                health = 10;
             }
         }
         public override Pen GetCreaturePen()
